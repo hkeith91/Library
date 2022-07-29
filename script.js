@@ -29,28 +29,21 @@ let myLibrary = [
   cloudAtlas,
 ];
 
-function addBookToLibray() {
-  
-}
-
-function displayTableData(bookToDisplay){
-  const 
-}
+function addBookToLibray() {}
 
 function displayBooks() {
-    myLibrary.forEach(book => {
-      console.log(book);
-        const tableRow = document.createElement("tr");
-        table.appendChild(tableRow);
-        for (const key in book) {
-          console.log("key: " + key);
-          console.log("book: " + book);
-            const tableData = document.createElement("td");
-            tableData.textContent = key.valueOf();
-            tableRow.appendChild(tableData);
-        }
-      });
-      
+  myLibrary.forEach((book) => {
+    console.log(book);
+    const tableRow = document.createElement("tr");
+    table.appendChild(tableRow);
+    for (const key in book) {
+      console.log("key: " + key);
+      console.log("book: " + book);
+      const tableData = document.createElement("td");
+      tableData.textContent = key.valueOf();
+      tableRow.appendChild(tableData);
+    }
+  });
 }
 
 function Book(title, author, pages, isRead) {
@@ -58,11 +51,9 @@ function Book(title, author, pages, isRead) {
   this.author = author;
   this.pages = pages;
   this.isRead = isRead;
-  this.info = function () {
-    let bookInfo = `${title} by ${author}, ${pages} pages, ${isRead}`;
-    return bookInfo;
-  };
 }
-displayBooks();
+// displayBooks();
+Object.values(theHobbit).forEach(val => console.log(val));
+
 
 // console.log(theHobbit.info());
