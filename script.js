@@ -33,18 +33,17 @@ function addBookToLibray() {}
 
 function displayBooks() {
   myLibrary.forEach((book) => {
-    console.log(book);
+    console.log("Book: " + book);
     const tableRow = document.createElement("tr");
     table.appendChild(tableRow);
-    for (const key in book) {
-      console.log("key: " + key);
-      console.log("book: " + book);
+    Object.values(book).forEach((val) => {
+      console.log("book: " + book + "val: " + book.val);
       const tableData = document.createElement("td");
-      tableData.textContent = key.valueOf();
+      tableData.textContent = val;
       tableRow.appendChild(tableData);
-    }
-  });
-}
+    });
+  }
+)};
 
 function Book(title, author, pages, isRead) {
   this.title = title;
@@ -52,8 +51,6 @@ function Book(title, author, pages, isRead) {
   this.pages = pages;
   this.isRead = isRead;
 }
-// displayBooks();
-Object.values(theHobbit).forEach(val => console.log(val));
-
+displayBooks();
 
 // console.log(theHobbit.info());
