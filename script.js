@@ -29,21 +29,46 @@ let myLibrary = [
   cloudAtlas,
 ];
 
-function addBookToLibray() {}
+function addNewBook() {
+  createForm();
+}
+
+function createForm() {
+  const form = document.createElement("form");
+  const titleForm = document.createElement("input");
+  titleForm.setAttribute("type", "text");
+  titleForm.setAttribute("value", "Title");
+  form.appendChild(titleForm);
+  const authorForm = document.createElement("input");
+  authorForm.setAttribute('type', "text");
+  authorForm.setAttribute('value', "Author");
+  form.appendChild(authorForm);
+  const pageNumForm = document.createElement("input");
+  pageNumForm.setAttribute('type', "text");
+  pageNumForm.setAttribute("value", "Pages");
+  form.append(pageNumForm);
+  const hasBeenRead = document.createElement("input");
+  hasBeenRead.setAttribute("type", "checkbox");
+  hasBeenRead.setAttribute("value", "Read?");
+  
+  const submitButton = document.createElement("button");
+  submitButton.setAttribute("value", "Submit");
+  submitButton.setAttribute("onclick", storeInputs());
+  form.appendChild(hasBeenRead);
+  document.body.appendChild(form);
+}
 
 function displayBooks() {
   myLibrary.forEach((book) => {
-    console.log("Book: " + book);
     const tableRow = document.createElement("tr");
     table.appendChild(tableRow);
     Object.values(book).forEach((val) => {
-      console.log("book: " + book + "val: " + book.val);
       const tableData = document.createElement("td");
       tableData.textContent = val;
       tableRow.appendChild(tableData);
     });
-  }
-)};
+  });
+}
 
 function Book(title, author, pages, isRead) {
   this.title = title;
